@@ -1,0 +1,142 @@
+:root { --gold: #b38e6d; --dark: #2d2a26; --bg: #fcfbf9; }
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Montserrat', sans-serif; background-color: var(--bg); color: #444; line-height: 1.6; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+.gold-italic { font-style: italic; color: var(--gold); }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+
+/* Header */
+.navbar { background: #fff; padding: 15px 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+.header-flex { display: flex; justify-content: space-between; align-items: center; }
+.logo img { 
+  
+height: 12rem; 
+width: 12rem;
+padding-bottom: 0;
+margin-bottom: 0;
+
+}
+.nav-menu a { text-decoration: none; color: #383434; margin: 0 15px; font-size: 18px; text-transform: uppercase; font-weight: 800;   }
+.nav-menu a:hover{background-color: #b38e6d; color: #fff; padding: 10px; border-radius: 16px;}
+
+.btn-cta-small { background: var(--gold); color: #fff; text-decoration: none; padding:  18px; width: 12rem; border-radius: 50px; display: inline-block; font-weight: bold; transition: 0.3s;  }
+.btn-cta-small:hover{ transform: scale(1.1);}
+.btn-cta-small a:hover{background-color: #b38e6d; padding: 10px; border-radius: 16px; transform: scale(1.1);} 
+
+/* Hero */
+.hero { padding: 100px 0; margin-bottom: 18rem;}
+.hero-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; }
+.hero-content h1 { font-family: 'Playfair Display', serif; font-size: 60px; line-height: 1.1; margin-bottom: 20px; }
+.subtitle { font-size: 18px; color: #666; margin-bottom: 10px; }
+.description { font-size: 14px; color: #888; margin-bottom: 30px; max-width: 480px; }
+.btn-cta-large { background: var(--gold); color: #fff; text-decoration: none; padding: 18px 35px; border-radius: 50px; display: inline-block; font-weight: bold; transition: 0.3s; }
+.hero-image { position:relative; height: 40rem;width: 160%; padding-right: 12rem;}
+.hero-image img {  margin-right: 1rem; height: 68rem; width: 100%; border-radius: 40px; box-shadow: 20px 20px 60px rgba(0,0,0,0.05); padding-bottom: 4rem;}
+
+
+/* Seções Gerais */
+.rejuvenescimento, .clinica { padding: 100px 0; background: #fff; }
+.check-list { list-style: none; margin: 25px 0; }
+.check-list li { margin-bottom: 15px; padding-left: 30px; position: relative; font-size: 14px; color: #777; }
+.check-list li::before { content: '✓'; position: absolute; left: 0; color: var(--gold); font-weight: bold; }
+.rejuv-img img, .clinica-img img { width: 140%; border-radius: 30px; padding-right: 6rem;}
+
+/* Tratamentos */
+.tratamentos { padding: 80px 0; text-align: center; }
+.section-title { font-family: 'Playfair Display'; font-size: 40px; margin-bottom: 50px; }
+.cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 10px; }
+.card { background: #fff;  border-radius: 30px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+.card:hover{ transform: scale(1.1);}
+.card img { width:99%; height: 380px; object-fit: cover; }
+.card-body { padding: 60px; }
+.card-body h3 { font-family: 'Playfair Display'; font-size: 24px; margin-bottom: 10px; }
+.card-body p{  margin-bottom: 16px; }
+.card-link { background-color: #b38e6d; color: var(--bg); border-radius: 5px; text-decoration:none; font-weight: bold; font-size: 12px; text-transform: uppercase; border-bottom: 1px solid;padding: 12px;}
+.card-link:hover{background-color: var(--dark);}
+
+.clinica-content {padding-left: 28rem;}
+.clinica-img {width: 150%;}
+.italic {font-style: italic; color: var(--gold);font-size: larger;}
+
+/* Stats */
+.stats { display: flex;  gap: 50px; margin-top: 40px; position: relative;}
+.stat span { display: block; font-size: 32px; font-weight: bold; color: var(--gold); }
+.stat p { font-size: 11px; text-transform: uppercase; color: #999; }
+
+
+/* Footer */
+.footer { background: var(--dark); color: #fff; padding: 80px 0; }
+.footer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+.footer-logo { height: 10rem; width: 10rem;  margin-bottom: 8px; }
+.footer-col h4 { color: var(--bg); margin-bottom: 20px; font-family: 'Playfair Display'; }
+.footer-col p { opacity: 0.7; font-size: 28px; color: #b38e6d; font-weight: 1000;}
+
+/* WhatsApp */
+.whatsapp-btn { position: fixed; bottom: 30px; left: 30px; background: #25d366; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 20px rgba(0,0,0,0.1); z-index: 1000; }
+.whatsapp-btn:hover { transform: scale(1.1); }
+.whatsapp-btn img { width: 35px;}
+ 
+/*Instagram*/
+
+.btn-instagram-flutuante {
+     position: fixed; bottom: 8rem; left: 30px; ; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 20px rgba(0,0,0,0.1); z-index: 1000; 
+}
+
+.btn-instagram-flutuante img {
+    width: 95px; /* Ajuste o tamanho do ícone aqui */
+    height: 95px;
+    border-radius: 85px;
+    /*filter: brightness(0) invert(1); /* Deixa o ícone branco */
+}
+
+.btn-instagram-flutuante:hover {
+    transform: scale(1.1); /* Efeito de aumentar levemente ao passar o mouse */
+   /* background-color: #d62976;*/
+}
+
+
+
+@media (max-width: 768px) {
+    .grid-2, .hero-grid { grid-template-columns: 1fr; text-align: center; }
+    .hero-content h1 { font-size: 40px; }
+    .nav-menu { display: none; }
+
+    /* Isso vale para todas as telas */
+.mapa-container {
+    width: 80%;
+    padding: 50px 0; /* Espaço respiro entre as seções */
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+}
+
+.mapa-content {
+    width: 90%; /* Deixa uma margem nas laterais em telas grandes */
+    max-width: 1200px; /* Alinha com a largura máxima do seu conteúdo */
+    border-radius: 15px; 
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.mapa-content iframe {
+    width: 100% !important; /* Força o iframe a ocupar todo o espaço da div */
+    display: block;
+}
+
+/* Ajuste específico para Celular (coloque dentro do seu @media atual) */
+@media (max-width: 768px) {
+    .mapa-container {
+        padding: 30px 0;
+    }
+    
+    .mapa-content {
+        width: 95%; /* No celular, o mapa pode ser um pouco mais largo */
+        height: 300px; /* Reduzimos a altura para não ocupar a tela toda do celular */
+    }
+
+    .mapa-content iframe {
+        height: 300px; /* Garante que o iframe siga a altura da div */
+    }
+}
+}
