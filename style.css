@@ -32,7 +32,12 @@ margin-bottom: 0;
 .description { font-size: 14px; color: #888; margin-bottom: 30px; max-width: 480px; }
 .btn-cta-large { background: var(--gold); color: #fff; text-decoration: none; padding: 18px 35px; border-radius: 50px; display: inline-block; font-weight: bold; transition: 0.3s; }
 .hero-image { position:relative; height: 40rem;width: 160%; padding-right: 12rem;}
-.hero-image img {  margin-right: 1rem; height: 68rem; width: 100%; border-radius: 40px; box-shadow: 20px 20px 60px rgba(0,0,0,0.05); padding-bottom: 4rem;}
+.hero-image img {
+    max-width: 100%;    /* Garante que ela nunca transborde a tela */
+    height: auto;        /* Mantém a proporção e evita que fique esmagada */
+    border-radius: 40px;
+    box-shadow: 20px 20px 60px rgba(0,0,0,0.05);
+}
 
 
 /* Seções Gerais */
@@ -40,12 +45,26 @@ margin-bottom: 0;
 .check-list { list-style: none; margin: 25px 0; }
 .check-list li { margin-bottom: 15px; padding-left: 30px; position: relative; font-size: 14px; color: #777; }
 .check-list li::before { content: '✓'; position: absolute; left: 0; color: var(--gold); font-weight: bold; }
-.rejuv-img img, .clinica-img img { width: 140%; border-radius: 30px; padding-right: 6rem;}
+.rejuv-img img, .clinica-img img {
+    width: 100%; 
+    max-width: 100%;
+    height: auto;
+    border-radius: 30px; 
+    padding-right: 0; /* Remova o padding-right de 6rem que está lá */
+}
 
 /* Tratamentos */
 .tratamentos { padding: 80px 0; text-align: center; }
 .section-title { font-family: 'Playfair Display'; font-size: 40px; margin-bottom: 50px; }
-.cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 10px; }
+.cards-grid { 
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto; 
+    justify-content:center; /* Isso garante que o bloco de cards fique centralizado */
+}
 .card { background: #fff;  border-radius: 30px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
 .card:hover{ transform: scale(1.1);}
 .card img { width:99%; height: 380px; object-fit: cover; }
@@ -55,8 +74,16 @@ margin-bottom: 0;
 .card-link { background-color: #b38e6d; color: var(--bg); border-radius: 5px; text-decoration:none; font-weight: bold; font-size: 12px; text-transform: uppercase; border-bottom: 1px solid;padding: 12px;}
 .card-link:hover{background-color: var(--dark);}
 
-.clinica-content {padding-left: 28rem;}
-.clinica-img {width: 150%;}
+.clinica-content {
+    padding: 40px 20px; /* Remove os 28rem e usa um respiro equilibrado */
+    text-align: center; /* Garante que o texto fique centralizado */
+}
+
+.clinica-img {
+    width: 100%;       /* Altera de 150% para 100% para caber na tela */
+    max-width: 600px;  /* Limita o tamanho para não ficar gigante no PC */
+    margin: 0 auto;    /* Centraliza a imagem no bloco */
+}
 .italic {font-style: italic; color: var(--gold);font-size: larger;}
 
 /* Stats */
@@ -102,41 +129,46 @@ margin-bottom: 0;
     .hero-content h1 { font-size: 40px; }
     .nav-menu { display: none; }
 
-    /* Isso vale para todas as telas */
-.mapa-container {
-    width: 80%;
-    padding: 50px 0; /* Espaço respiro entre as seções */
-    display: flex;
-    justify-content: center;
-    background-color: #fff;
-}
-
-.mapa-content {
-    width: 90%; /* Deixa uma margem nas laterais em telas grandes */
-    max-width: 1200px; /* Alinha com a largura máxima do seu conteúdo */
-    border-radius: 15px; 
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-
-.mapa-content iframe {
-    width: 100% !important; /* Força o iframe a ocupar todo o espaço da div */
-    display: block;
-}
-
-/* Ajuste específico para Celular (coloque dentro do seu @media atual) */
-@media (max-width: 768px) {
     .mapa-container {
-        padding: 30px 0;
+        width: 100%;
+        padding: 40px 0;
+        display: flex;
+        justify-content: center;
     }
     
-    .mapa-content {
-        width: 95%; /* No celular, o mapa pode ser um pouco mais largo */
-        height: 300px; /* Reduzimos a altura para não ocupar a tela toda do celular */
+  
+    @media (max-width: 768px) {
+        /* Força todas as colunas a virarem uma só no celular */
+        .grid-2, .hero-grid, .footer-grid {
+            grid-template-columns: 1fr !important;
+            text-align: center;
+        }
+    
+        /* Remove recuos exagerados que empurram o site para o lado */
+        .hero-content, .rejuv-text, .clinica-content {
+            padding: 20px !important;
+            margin: 0 !important;
+        }
+    
+        /* Ajusta as imagens para não estourarem a largura */
+        .hero-image img, .rejuv-img img, .clinica-img img {
+            width: 100% !important;
+            height: auto !important;
+            padding: 0 !important;
+            margin-bottom: 20px;
+        }
+        
+        /* Esconde o menu se necessário ou ajusta botões */
+        .nav-menu {
+            display: none; /* Se você não fez o menu hambúrguer ainda */
+        }
+    
     }
-
+    
+    
     .mapa-content iframe {
-        height: 300px; /* Garante que o iframe siga a altura da div */
+        width: 100% !important; /* Força o Google Maps a respeitar o container */
+        height: 450px;
+        border: 0;
     }
-}
 }
